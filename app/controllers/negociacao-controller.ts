@@ -14,12 +14,13 @@ export class NegociacaoController {
         this.inputData = document.querySelector('#data')
         this.inputQuantidade = document.querySelector('#quantidade')
         this.inputValor = document.querySelector('#valor')
-        this.negociacoesView.upadate();
+        this.negociacoesView.upadate(this.negociaoes);
     }
 
     adiciona():void {
         const negociacao = this.criaNegociacao()
         this.negociaoes.adiciona(negociacao)
+        this.negociacoesView.upadate(this.negociaoes);
         this.limparFormulario()
         console.log(this.negociaoes.lista())
     }

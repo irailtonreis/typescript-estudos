@@ -2,7 +2,7 @@ import { Negociacao } from "../models/Negociacao.js";
 import { Negociacoes } from "../models/Negociacoes.js";
 import { View } from "./View.js";
 
-export class NegociacoesView extends View {
+export class NegociacoesView extends View<Negociacoes> {
     template(model: Negociacoes): string {
         return `
             <table class="table table-hover table-bordered"> 

@@ -10,6 +10,8 @@ export class NegociacaoController {
     private negociaoes = new Negociacoes()
     private negociacoesView = new NegociacoesView("#negociaoesView");
     private mensagemView = new MensagemView("#mensagemView");
+    private readonly SABADO = 6;
+    private readonly DOMINGO = 0;
 
 
 
@@ -22,13 +24,17 @@ export class NegociacaoController {
 
    public adiciona():void {
         const negociacao = this.criaNegociacao()
-        if(negociacao.data.getDay() > 0 && negociacao.data.getDay() < 6){
-            this.negociaoes.adiciona(negociacao)
+        if(!this.ehDiaUtil(negociacao.data)){
+            this.mensagemView.upadate('Apenas negociações em dias úteis são aceitas.')
+            return;
+        }
+        this.negociaoes.adiciona(negociacao)
         this.limparFormulario()
         this.atualizaView()
-        }else{
-            this.mensagemView.upadate('Apenas negociações em dias úteis são aceitas.')
-        }
+    }
+    private ehDiaUtil(data: Date){
+        return data.getDay() > this.DOMINGO && data.getDay() < this.SABADO
+
     }
 
    private criaNegociacao(): Negociacao{

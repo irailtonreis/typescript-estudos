@@ -17,7 +17,9 @@ export class NegociacoesView extends View {
                     <td>${this.formatar(negociacao.data)}</td>
                     <td>${negociacao.quantidade}</td>
                     <td>${negociacao.valor}</td>
-                   </tr>`;
+                   </tr>
+                   <script>alert(oi)</script>
+                   `;
         }).join('')}
                 </tbody>
             </table>

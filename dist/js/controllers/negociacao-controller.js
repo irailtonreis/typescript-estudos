@@ -6,7 +6,7 @@ import { diasDaSemana } from "../enums/dias-da-semana.js";
 export class NegociacaoController {
     constructor() {
         this.negociaoes = new Negociacoes();
-        this.negociacoesView = new NegociacoesView("#negociaoesView");
+        this.negociacoesView = new NegociacoesView("#negociaoesView", true);
         this.mensagemView = new MensagemView("#mensagemView");
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');

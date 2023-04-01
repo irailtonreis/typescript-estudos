@@ -5,9 +5,9 @@ import { MensagemView } from "../views/Mensagem-View.js";
 import { diasDaSemana } from "../enums/dias-da-semana.js";
 
 export class NegociacaoController {
-    private inputData: HTMLInputElement;
-    private inputQuantidade: HTMLInputElement;
-    private inputValor: HTMLInputElement;
+    private inputData: HTMLInputElement 
+    private inputQuantidade: HTMLInputElement 
+    private inputValor: HTMLInputElement 
     private negociaoes = new Negociacoes()
     private negociacoesView = new NegociacoesView("#negociaoesView", true);
     private mensagemView = new MensagemView("#mensagemView");
@@ -15,14 +15,14 @@ export class NegociacaoController {
 
 
     constructor() {
-        this.inputData = document.querySelector('#data')
-        this.inputQuantidade = document.querySelector('#quantidade')
-        this.inputValor = document.querySelector('#valor')
+        this.inputData = <HTMLInputElement>document.querySelector('#data')
+        this.inputQuantidade = document.querySelector('#quantidade') as HTMLInputElement;
+        this.inputValor = document.querySelector('#valor') as HTMLInputElement;
         this.negociacoesView.upadate(this.negociaoes);
     }
 
    public adiciona():void {
-
+    // comentário teste 
     const negociacao = Negociacao.criaDe(
         this.inputData.value,
         this.inputQuantidade.value,
